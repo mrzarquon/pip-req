@@ -35,4 +35,4 @@ jobs:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         run: |
           PATH=$(npm bin):$PATH
-          snyk test --file=requirements.txt --package-manager=pip | snyk-delta
+          snyk test --file=requirements.txt --package-manager=pip --json --print-deps | snyk-delta
