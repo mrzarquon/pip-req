@@ -33,4 +33,6 @@ jobs:
       - name: Snyk Test & Filter
         env: 
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-        run: snyk test --file=requirements.txt --package-manager=pip | snyk-delta
+        run: |
+          - PATH=$(npm bin):$PATH
+          - snyk test --file=requirements.txt --package-manager=pip | snyk-delta
